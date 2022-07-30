@@ -73,8 +73,8 @@ namespace KRPC.MechJeb {
 			getComputerModule = t.GetCheckedMethod("GetComputerModule", new Type[] { typeof(string) });
 
 			// MechJeb found, create module instances
-			modules.Add("AirplaneAutopilot", new AirplaneAutopilot());
-			modules.Add("AscentAutopilot", new AscentAutopilot());
+                        //modules.Add("AirplaneAutopilot", new AirplaneAutopilot());
+                        //modules.Add("AscentAutopilot", new AscentAutopilot());
 			modules.Add("DockingAutopilot", new DockingAutopilot());
 			modules.Add("LandingAutopilot", new LandingAutopilot());
 			modules.Add("RendezvousAutopilot", new RendezvousAutopilot());
@@ -156,11 +156,11 @@ namespace KRPC.MechJeb {
 
 		// AUTOPILOTS
 
-		[KRPCProperty]
-		public static AirplaneAutopilot AirplaneAutopilot => (AirplaneAutopilot)modules["AirplaneAutopilot"];
+		//[KRPCProperty]
+                //public static AirplaneAutopilot AirplaneAutopilot => (AirplaneAutopilot)modules["AirplaneAutopilot"];
 
-		[KRPCProperty]
-		public static AscentAutopilot AscentAutopilot => (AscentAutopilot)modules["AscentAutopilot"];
+		//[KRPCProperty]
+                //public static AscentAutopilot AscentAutopilot => (AscentAutopilot)modules["AscentAutopilot"];
 
 		[KRPCProperty]
 		public static DockingAutopilot DockingAutopilot => (DockingAutopilot)modules["DockingAutopilot"];
