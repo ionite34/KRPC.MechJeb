@@ -15,7 +15,7 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-  </PropertyGroup>
+    </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -54,8 +54,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\UnityEngine.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,  processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+      </ItemGroup>
+      <ItemGroup>
     <Compile Include="ExtensionMethods\ReflectionExtensions.cs" />
     <Compile Include="ExtensionMethods\VesselExtensions.cs" />
     <Compile Include="Maneuver\Operation.cs" />
