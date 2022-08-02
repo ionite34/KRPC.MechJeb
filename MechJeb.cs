@@ -171,7 +171,7 @@ namespace KRPC.MechJeb {
                 [KRPCProperty]
                 public static RendezvousAutopilot RendezvousAutopilot => (RendezvousAutopilot)modules["RendezvousAutopilot"];
 
-                 WINDOWS
+                // WINDOWS
 
                 [KRPCProperty]
                 public static ManeuverPlanner ManeuverPlanner => (ManeuverPlanner)modules["ManeuverPlanner"];
