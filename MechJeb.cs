@@ -73,8 +73,8 @@ namespace KRPC.MechJeb {
 			getComputerModule = t.GetCheckedMethod("GetComputerModule", new Type[] { typeof(string) });
 
 			// MechJeb found, create module instances
-                        //modules.Add("AirplaneAutopilot", new AirplaneAutopilot());
-                        //modules.Add("AscentAutopilot", new AscentAutopilot());
+                        modules.Add("AirplaneAutopilot", new AirplaneAutopilot());
+                        modules.Add("AscentAutopilot", new AscentAutopilot());
 			modules.Add("DockingAutopilot", new DockingAutopilot());
 			modules.Add("LandingAutopilot", new LandingAutopilot());
 			modules.Add("RendezvousAutopilot", new RendezvousAutopilot());
@@ -131,7 +131,7 @@ namespace KRPC.MechJeb {
 
 		internal static void ShowErrors() {
 			if(errors.Count != 0) {
-				PopupDialog.SpawnPopupDialog(new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), "MechJebChecker", "kRPC.MechJeb may not work properly", string.Join("\n", errors.ToArray()), "OK", false, HighLogic.UISkin);
+				//PopupDialog.SpawnPopupDialog(new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), "MechJebChecker", "kRPC.MechJeb may not work properly", string.Join("\n", errors.ToArray()), "OK", false, HighLogic.UISkin);
 				errors.Clear();
 			}
 		}
@@ -156,28 +156,28 @@ namespace KRPC.MechJeb {
 
 		// AUTOPILOTS
 
-		//[KRPCProperty]
-                //public static AirplaneAutopilot AirplaneAutopilot => (AirplaneAutopilot)modules["AirplaneAutopilot"];
+                [KRPCProperty]
+                public static AirplaneAutopilot AirplaneAutopilot => (AirplaneAutopilot)modules["AirplaneAutopilot"];
 
-		//[KRPCProperty]
-                //public static AscentAutopilot AscentAutopilot => (AscentAutopilot)modules["AscentAutopilot"];
+                [KRPCProperty]
+                public static AscentAutopilot AscentAutopilot => (AscentAutopilot)modules["AscentAutopilot"];
 
-		[KRPCProperty]
-		public static DockingAutopilot DockingAutopilot => (DockingAutopilot)modules["DockingAutopilot"];
+                [KRPCProperty]
+                public static DockingAutopilot DockingAutopilot => (DockingAutopilot)modules["DockingAutopilot"];
 
-		[KRPCProperty]
-		public static LandingAutopilot LandingAutopilot => (LandingAutopilot)modules["LandingAutopilot"];
+                [KRPCProperty]
+                public static LandingAutopilot LandingAutopilot => (LandingAutopilot)modules["LandingAutopilot"];
 
-		[KRPCProperty]
-		public static RendezvousAutopilot RendezvousAutopilot => (RendezvousAutopilot)modules["RendezvousAutopilot"];
+                [KRPCProperty]
+                public static RendezvousAutopilot RendezvousAutopilot => (RendezvousAutopilot)modules["RendezvousAutopilot"];
 
-		// WINDOWS
+                 WINDOWS
 
-		[KRPCProperty]
-		public static ManeuverPlanner ManeuverPlanner => (ManeuverPlanner)modules["ManeuverPlanner"];
+                [KRPCProperty]
+                public static ManeuverPlanner ManeuverPlanner => (ManeuverPlanner)modules["ManeuverPlanner"];
 
-		[KRPCProperty]
-		public static SmartASS SmartASS => (SmartASS)modules["SmartASS"];
+                [KRPCProperty]
+                public static SmartASS SmartASS => (SmartASS)modules["SmartASS"];
 
 		[KRPCProperty]
 		public static SmartRCS SmartRCS => (SmartRCS)modules["SmartRCS"];
