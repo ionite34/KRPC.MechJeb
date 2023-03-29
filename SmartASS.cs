@@ -193,9 +193,24 @@ namespace KRPC.MechJeb {
 
 		[KRPCEnum(Service = "MechJeb")]
 		public enum SmartASSInterfaceMode {
+			/// <summary>
+			/// Orbital mode.
+			/// </summary>
 			Orbital,
+			
+			/// <summary>
+			/// Surface mode.
+			/// </summary>
 			Surface,
+			
+			/// <summary>
+			/// Target mode.
+			/// </summary>
 			Target,
+			
+			/// <summary>
+			/// Advanced mode.
+			/// </summary>
 			Advanced,
 
 			/// <summary>
