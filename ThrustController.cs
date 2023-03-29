@@ -5,6 +5,9 @@ using KRPC.MechJeb.ExtensionMethods;
 using KRPC.Service.Attributes;
 
 namespace KRPC.MechJeb {
+	/// <summary>
+	/// This module controls the ThrustController in MechJeb 2.
+	/// </summary>
 	[KRPCClass(Service = "MechJeb")]
 	public class ThrustController : ComputerModule {
 		internal new const string MechJebType = "MuMech.MechJebModuleThrustController";
