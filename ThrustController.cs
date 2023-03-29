@@ -9,7 +9,7 @@ namespace KRPC.MechJeb {
 	/// This module controls the ThrustController in MechJeb 2.
 	/// </summary>
 	[KRPCClass(Service = "MechJeb")]
-	public class ThrustController : ComputerModule {
+	public class ThrustController : KRPCComputerModule {
 		internal new const string MechJebType = "MuMech.MechJebModuleThrustController";
 
 		// Fields
