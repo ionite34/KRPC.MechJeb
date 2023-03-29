@@ -9,7 +9,7 @@ namespace KRPC.MechJeb {
 	public class ThrustController : ComputerModule {
 		internal new const string MechJebType = "MuMech.MechJebModuleThrustController";
 
-		// Fields and methods
+		// Fields
 		private static FieldInfo limitDynamicPressure;
 		private static FieldInfo maxDynamicPressureField;
 		private static FieldInfo limitToPreventOverheats;
@@ -32,6 +32,9 @@ namespace KRPC.MechJeb {
 		private static FieldInfo electricThrottleLoField;
 		private static FieldInfo electricThrottleHiField;
 
+		// Methods
+		private static MethodInfo thrustForDV;
+
 		// Translatron fields
 		internal static PropertyInfo tMode;
 		internal static FieldInfo transSpdAct;
@@ -45,6 +48,10 @@ namespace KRPC.MechJeb {
 		private object minThrottle;
 		private object electricThrottleLo;
 		private object electricThrottleHi;
+		
+		// Throttle
+		private static FieldInfo targetThrottleField;
+		private object targetThrottle;
 
 		internal static new void InitType(Type type) {
 			limitDynamicPressure = type.GetCheckedField("limitDynamicPressure");
@@ -66,6 +73,9 @@ namespace KRPC.MechJeb {
 			electricThrottle = type.GetCheckedField("electricThrottle");
 			electricThrottleLoField = type.GetCheckedField("electricThrottleLo");
 			electricThrottleHiField = type.GetCheckedField("electricThrottleHi");
+			targetThrottleField = type.GetCheckedField("targetThrottle");
+
+			thrustForDV = type.GetCheckedMethod("ThrustForDV");
 
 			// Translatron fields
 			tMode = type.GetCheckedProperty("tmode");
@@ -83,8 +93,27 @@ namespace KRPC.MechJeb {
 			this.minThrottle = minThrottleField.GetInstanceValue(instance);
 			this.electricThrottleLo = electricThrottleLoField.GetInstanceValue(instance);
 			this.electricThrottleHi = electricThrottleHiField.GetInstanceValue(instance);
+			this.targetThrottle = targetThrottleField.GetInstanceValue(instance);
 		}
 
+		/// <summary>
+		/// Set the throttle for a burn with dV delta-V remaining
+		/// </summary>
+		[KRPCMethod]
+		public void ThrustForDV(double dv, double timeConstant) {
+			object[] args = { dv, timeConstant };
+			thrustForDV.Invoke(this.instance, args);
+		}
+		
+		/// <summary>
+		/// Set the target throttle.
+		/// </summary>
+		[KRPCProperty]
+		public float TargetThrottle {
+			get => (float)targetThrottleField.GetValue(this.instance);
+			set => targetThrottleField.SetValue(this.instance, value);
+		}
+		
 		[KRPCProperty]
 		public bool LimitDynamicPressure {
 			get => (bool)limitDynamicPressure.GetValue(this.instance);
