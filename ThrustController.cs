@@ -34,6 +34,7 @@ namespace KRPC.MechJeb {
 		private static FieldInfo electricThrottle;
 		private static FieldInfo electricThrottleLoField;
 		private static FieldInfo electricThrottleHiField;
+		private static FieldInfo users;
 
 		// Methods
 		private static MethodInfo thrustForDV;
@@ -104,7 +105,7 @@ namespace KRPC.MechJeb {
 		/// </summary>
 		[KRPCMethod]
 		public void ThrustForDV(double dv, double timeConstant) {
-			object[] args = { dv, timeConstant };
+			object[] args = { this, dv, timeConstant };
 			thrustForDV.Invoke(this.instance, args);
 		}
 		
